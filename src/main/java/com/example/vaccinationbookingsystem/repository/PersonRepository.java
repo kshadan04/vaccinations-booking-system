@@ -25,6 +25,9 @@ public interface PersonRepository extends JpaRepository<Person,Integer> {
     @Query(value = "select name from person where is_dose1Taken = false and is_dose2Taken = false", nativeQuery = true)
     List<String> getAllPersonWhoIsNotTakenSingleDose();
 
-//    @Query(value = "select name from person where age > :ages and is_dose1Taken = true and is_dose2Taken = false", nativeQuery = true)
-//    List<String> getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(int ages);
+    @Query(value = "select name from person where age > :ages and is_dose1Taken = true and is_dose2Taken = false", nativeQuery = true)
+    List<String> getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(int ages);
+
+    @Query(value = "select name from person where age > :ages and is_dose1Taken = true and is_dose2Taken = true", nativeQuery = true)
+    List<String> getAllMaleFullyVaccinatedAndGreaterThanAge(int ages);
 }

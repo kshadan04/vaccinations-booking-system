@@ -72,8 +72,13 @@ public class PersonController {
     }
 
 
-//    @GetMapping("/get_female_with_certain_age")
-//    public List<String> getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(@RequestParam("age") int age){
-//        return personService.getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(age);
-//    }
+    @GetMapping("/get_female_with_certain_age")
+    public List<String> getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(@RequestParam("age") int age){
+        return personService.getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(age);
+    }
+
+    @GetMapping("/all_male_fully_vaccinated_greater_than_age")
+    public List<String> getAllMaleFullyVaccinatedAndGreaterThanAge(@RequestParam("age") int age){
+        return personService.getAllMaleFullyVaccinatedAndGreaterThanAge(age);
+    }
 }

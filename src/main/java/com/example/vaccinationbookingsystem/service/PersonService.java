@@ -80,7 +80,16 @@ public class PersonService {
         return personRepository.getAllPersonWhoIsNotTakenSingleDose();
     }
 
-//    public List<String> getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(int age) {
-//         personRepository.getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(age);
-//    }
+    public List<String> getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(int age) {
+         List<String > personList  = personRepository.getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(age);
+         List<String> ans = new ArrayList<>();
+         for(String name : personList){
+             ans.add(name);
+         }
+         return ans;
+    }
+
+    public List<String> getAllMaleFullyVaccinatedAndGreaterThanAge(int age) {
+        return personRepository.getAllMaleFullyVaccinatedAndGreaterThanAge(age);
+    }
 }
