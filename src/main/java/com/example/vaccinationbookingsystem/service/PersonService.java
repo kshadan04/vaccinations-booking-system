@@ -7,6 +7,10 @@ import com.example.vaccinationbookingsystem.model.Person;
 import com.example.vaccinationbookingsystem.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PersonService {
@@ -49,4 +53,34 @@ public class PersonService {
         return "Congratulations!! your email updated successfully";
     }
 
+    public List<String> getMaleByCertainAge(int age) {
+        List<Person> persons = personRepository.getMaleByCertainAge(age);
+
+        List<String> personList = new ArrayList<>();
+        for(Person person : persons){
+            personList.add(person.getName());
+        }
+        return personList;
+
+    }
+
+
+    public List<String> femaleTakenDose1AndNotDose2() {
+        List<String> personList = personRepository.femaleTakenDose1AndNotDose2();
+        return personList;
+
+
+    }
+
+    public List<String> getAllPersonWhoIsFullyVaccinated() {
+        return personRepository.getAllPersonWhoIsFullyVaccinated();
+    }
+
+    public List<String> getAllPersonWhoIsNotTakenSingleDose() {
+        return personRepository.getAllPersonWhoIsNotTakenSingleDose();
+    }
+
+//    public List<String> getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(int age) {
+//         personRepository.getAllFemaleAgeGreaterThanCertainAgeOnlyDose1Taken(age);
+//    }
 }

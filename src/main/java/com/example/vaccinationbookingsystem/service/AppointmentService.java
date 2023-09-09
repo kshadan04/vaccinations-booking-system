@@ -74,6 +74,10 @@ public class AppointmentService {
         appointment.setPerson(person);
         appointment.setDoctor(doctor);
 
+        if(person.isDose1Taken()){
+            appointment.setDoseNo(1);
+        }
+
         Appointment savedAppointment = appointmentRepository.save(appointment);
 
         doctor.getAppointmentList().add(savedAppointment);
